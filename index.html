@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK BISA - Pusat Akses Kisi-Kisi khusus anggota BIKU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="center-page">
+
+    <div class="container-login">
+        <div class="header-login">
+            <h1><i class="icon-smk">🛠️</i> SMK BISA!</h1>
+            <p>Masukkan Password </p>
+        </div>
+
+        <div class="form-group-login">
+            <input type="password" id="access-code" placeholder="Kode Akses Rahasia Mata Pelajaran">
+            <button onclick="checkMasterPassword()" class="btn-verify">Akses Kisi-Kisi</button>
+            <p id="error-message" class="error"></p>
+        </div>
+        
+        
+    </div>
+
+    <script>
+        // 🔐 DATABASE PASSWORD: Password (Key) akan mengarah ke Halaman File (Value)
+        const PASSWORDS = {
+            'BIND.uas_2025': 'bindo.html',      // Password BIND_2025 mengarah ke bindo.html
+            'SEJ.uas_2025': 'sejarah.html',     // Password SEJ_2025 mengarah ke sejarah.html
+            'AGM.uas_2025': 'agama.html',     // Password AGAMA_2025 mengarah ke agama.html
+        };
+
+        function checkMasterPassword() {
+            const input = document.getElementById('access-code').value;
+            const errorMsg = document.getElementById('error-message');
+            
+            if (PASSWORDS.hasOwnProperty(input)) {
+                const targetPage = PASSWORDS[input];
+                errorMsg.textContent = "Akses Diterima! Mengarahkan ke kisi-kisi...";
+                errorMsg.classList.remove('error');
+                errorMsg.classList.add('success');
+                
+                // Redirect ke halaman khusus mapel setelah 1 detik
+                setTimeout(() => {
+                    window.location.href = targetPage;
+                }, 1000);
+
+            } else {
+                errorMsg.textContent = "Kode Akses Salah atau Tidak Valid.";
+                errorMsg.classList.remove('success');
+                errorMsg.classList.add('error');
+            }
+        }
+    </script>
+</body>
+</html>
