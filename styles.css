@@ -1,0 +1,208 @@
+/* Styling Modern SMK BISA */
+body {
+    font-family: 'Poppins', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%); 
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* --- Styling Halaman Utama (Login) --- */
+.center-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-login {
+    width: 100%;
+    max-width: 450px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.header-login h1 {
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.header-login p {
+    color: #6c757d;
+    font-size: 1em;
+    margin-bottom: 25px;
+}
+
+.form-group-login {
+    display: block;
+    margin-bottom: 15px;
+}
+
+#access-code {
+    width: 90%;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.btn-verify {
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    width: 90%; 
+}
+
+.btn-verify:hover {
+    background-color: #1e7e34;
+}
+
+.warning-note-login {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ffeeba;
+    font-size: 0.85em;
+    margin-top: 20px;
+}
+
+/* --- Styling Halaman Tujuan (Mapel) --- */
+
+.header {
+    background: #007bff; 
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.document-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #ffc107; /* Garis Aksen */
+}
+
+.card-header {
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.document-card h2 {
+    color: #007bff;
+    margin: 0;
+    font-weight: 600;
+}
+
+.status-tag {
+    background-color: #dc3545; 
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.status-tag.restricted {
+    background-color: #f0ad4e; 
+}
+
+.status-tag.restricted-pro {
+    background-color: #9c27b0; 
+}
+
+
+.download-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 18px;
+    background-color: #ffc107; 
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.4);
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #e0a800;
+}
+
+.icon-download {
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+
+.back-link {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.back-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.error, .success {
+    margin-top: 10px;
+    width: 100%;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #343a40; 
+    color: #adb5bd;
+    margin-top: 40px;
+    font-size: 0.85em;
+  }
