@@ -29,5 +29,46 @@
         <p class="back-link"><a href="index.html">← Kembali ke Halaman Utama</a></p>
     </div>
     <div class="footer">© 2025 SMK BISA.</div>
+
+<script>
+   // === LAPISAN PROTEKSI ANTI-SCREENSHOT & DEVELOPER TOOLS ===
+        
+        // 1. Mencegah Shortcut Umum (F12, Inspect, View Source, Print, Download)
+        document.onkeydown = function(e) {
+            // Mencegah F12 (Developer Tools)
+            if(e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                alert("Akses Developer Tools diblokir.");
+                return false;
+            }
+            // Mencegah Ctrl+Shift+I atau Ctrl+Shift+J (Inspect Element)
+            if(e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) {
+                e.preventDefault();
+                return false;
+            }
+            // Mencegah Ctrl+U (View Source)
+            if(e.ctrlKey && e.key === 'U') {
+                e.preventDefault();
+                return false;
+            }
+            // Mencegah Ctrl+P (Print) dan Ctrl+S (Save/Download)
+            if(e.ctrlKey && (e.key === 'P' || e.key === 'S')) {
+                e.preventDefault();
+                return false;
+            }
+        };
+
+        // 2. Mencegah Copy/Cut/Paste (Pencegahan Copy Teks)
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+            alert("Aksi salin (copy) dinonaktifkan.");
+        });
+        document.addEventListener('cut', (e) => {
+            e.preventDefault();
+        });
+        document.addEventListener('paste', (e) => {
+            e.preventDefault();
+        });
+</script>
 </body>
 </html>
