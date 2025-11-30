@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK BISA - Lihat Kisi-Kisi (Terproteksi)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+</head>
+<body oncontextmenu="return false;"> 
+    <div class="header">
+        <div class="header-content">
+            <h1><i class="icon-smk">🛠️</i> SMK BISA!</h1>
+            <p>Pusat Kisi-Kisi Ujian (Mode Lihat Saja)</p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <section class="document-card animated-card">
+            <div class="card-header">
+                <h2>1. Kisi-Kisi Mata Pelajaran **Bahasa Indonesia**</h2>
+                <span class="status-tag restricted">LIHAT SAJA</span>
+            </div>
+            
+            <p class="description">Masukkan Kode Akses untuk menampilkan dokumen kisi-kisi langsung di sini. Download dinonaktifkan.</p>
+            
+            <div class="form-group" id="form-bindo">
+                <input type="password" id="pass-bindo" placeholder="Masukkan Kode Akses B. Indonesia">
+                <button onclick="checkPassword('bindo')" class="btn-verify">Verifikasi & Tampilkan</button>
+                <p id="error-bindo" class="error"></p>
+            </div>
+            
+            <div id="view-bindo" class="pdf-viewer" style="display: none;">
+                <embed src="kisi-kisi-bindo2025.pdf" width="100%" height="600px" type="application/pdf" />
+                <p class="view-note">Konten dimuat. Percobaan Download, Copy, dan Screenshot dilindungi.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="document-card animated-card">
+            <div class="card-header">
+                <h2>2. Kisi-Kisi Mata Pelajaran **Sejarah**</h2>
+                <span class="status-tag restricted-pro">LIHAT SAJA</span>
+            </div>
+            
+            <p class="description">Masukkan Kode Akses untuk menampilkan dokumen kisi-kisi langsung di sini. Download dinonaktifkan.</p>
+            
+            <div class="form-group" id="form-sejarah">
+                <input type="password" id="pass-sejarah" placeholder="Masukkan Kode Akses Sejarah">
+                <button onclick="checkPassword('sejarah')" class="btn-verify">Verifikasi & Tampilkan</button>
+                <p id="error-sejarah" class="error"></p>
+            </div>
+            
+            <div id="view-sejarah" class="pdf-viewer" style="display: none;">
+                <embed src="kisi-kisi-sejarah2025.pdf" width="100%" height="600px" type="application/pdf" />
+                <p class="view-note">Konten dimuat. Percobaan Download, Copy, dan Screenshot dilindungi.</p>
+            </div>
+        </section>
+        
+        <hr>
+        <section class="document-card animated-card">
+            <div class="card-header">
+                <h2>3. Kisi-Kisi Mata Pelajaran **Agama Islam**</h2>
+                <span class="status-tag restricted">LIHAT SAJA</span>
+            </div>
+            
+            <p class="description">Masukkan Kode Akses untuk menampilkan dokumen kisi-kisi langsung di sini. Download dinonaktifkan.</p>
+            
+            <div class="form-group" id="form-agama">
+                <input type="password" id="pass-agama" placeholder="Masukkan Kode Akses Agama Islam">
+                <button onclick="checkPassword('agama')" class="btn-verify">Verifikasi & Tampilkan</button>
+                <p id="error-agama" class="error"></p>
+            </div>
+            
+            <div id="view-agama" class="pdf-viewer" style="display: none;">
+                <embed src="kisi-kisi-agama2025.pdf" width="100%" height="600px" type="application/pdf" />
+                <p class="view-note">Konten dimuat. Percobaan Download, Copy, dan Screenshot dilindungi.</p>
+            </div>
+        </section>
+
+
+        <p class="warning-note">
+            **CATATAN PROTEKSI:** Fitur unduh, klik kanan, dan shortcut developer tools telah dinonaktifkan.
+        </p>
+    </div>
+
+    <div class="footer">
+        © 2025 SMK BISA - Dilindungi.
+    </div>
+
+    <script>
+        // 🔐 DATABASE PASSWORD: ID Mapel : Password Benar
+        const PASSWORDS = {
+            'bindo': 'BIndo_2025',       // ATUR PASSWORD B. INDONESIA DI SINI
+            'sejarah': 'SEJ_2025',       // ATUR PASSWORD SEJARAH DI SINI
+            'agama': 'AGM_2025',       // ATUR PASSWORD AGAMA ISLAM DI SINI
+        };
+
+        function checkPassword(fileId) {
+            const inputElement = document.getElementById('pass-' + fileId);
+            const viewArea = document.getElementById('view-' + fileId);
+            const form = document.getElementById('form-' + fileId);
+            const errorMsg = document.getElementById('error-' + fileId);
+            
+            const input = inputElement.value;
+            const correctPass = PASSWORDS[fileId]; 
+
+            if (input === correctPass) {
+                // Verifikasi Berhasil
+                form.style.display = 'none';
+                viewArea.style.display = 'block'; // Tampilkan PDF Viewer
+                errorMsg.textContent = "Verifikasi Berhasil! Dokumen ditampilkan.";
+                errorMsg.classList.remove('error');
+                errorMsg.classList.add('success');
+            } else {
+                // Verifikasi Gagal
+                errorMsg.textContent = "Kode Akses Salah. Mohon periksa kembali.";
+                errorMsg.classList.remove('success');
+                errorMsg.classList.add('error');
+                viewArea.style.display = 'none';
+            }
+        }
+
+        // === LAPISAN PROTEKSI ANTI-SCREENSHOT & DEVELOPER TOOLS ===
+        
+        // 1. Mencegah Shortcut Umum (F12, Inspect, View Source, Print, Download)
+        document.onkeydown = function(e) {
+            // Mencegah F12 (Developer Tools)
+            if(e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                alert("Akses Developer Tools diblokir.");
+                return false;
+            }
+            // Mencegah Ctrl+Shift+I atau Ctrl+Shift+J (Inspect Element)
+            if(e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) {
+                e.preventDefault();
+                return false;
+            }
+            // Mencegah Ctrl+U (View Source)
+            if(e.ctrlKey && e.key === 'U') {
+                e.preventDefault();
+                return false;
+            }
+            // Mencegah Ctrl+P (Print) dan Ctrl+S (Save/Download)
+            if(e.ctrlKey && (e.key === 'P' || e.key === 'S')) {
+                e.preventDefault();
+                return false;
+            }
+        };
+
+        // 2. Mencegah Copy/Cut/Paste (Pencegahan Copy Teks)
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+            alert("Aksi salin (copy) dinonaktifkan.");
+        });
+        document.addEventListener('cut', (e) => {
+            e.preventDefault();
+        });
+        document.addEventListener('paste', (e) => {
+            e.preventDefault();
+        });
+
+    </script>
+</body>
+</html>
